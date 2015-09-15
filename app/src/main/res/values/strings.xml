@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Testes</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ajude">Nos Ajude a Desenvolver</string>
+    <string name="domingo">Domingo</string>
+    <string name="segunda">Segunda</string>
+    <string name="terca">Terca</string>
+    <string name="quarta">Quarta</string>
+    <string name="quinta">Quinta</string>
+    <string name="sexta">Sexta</string>
+    <string name="sabado">Sabado</string>
+    <string name="descricao">Informações sobre a empresa : VAZIO</string>
+    <string name="endereco">Endereço:</string>
+
+</resources>

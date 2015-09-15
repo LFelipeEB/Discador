@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Lojas>
+    <Loja>
+        <nome>Sushi House</nome>
+        <inf>O mais gostoso da culinária japonesa, agora em Capelinha!\nDelivery de comida Japonesa Sushi House! </inf>
+        <horario>19:00-23:30</horario>
+        <dias>0,4,5,6</dias>
+        <endereco>Capelinha Minas Gerais, 39680-000 Capelinha</endereco>
+        <telefones>3891492149</telefones>
+        <tim></tim>
+        <vivo></vivo>
+        <oi></oi>
+        <claro></claro>
+        <celular>3399151033</celular>
+    </Loja>
+    <Loja>
+        <nome>Na Lenha Pizzaria</nome>
+        <inf></inf>
+        <horario></horario>
+        <dias>0,1,2,3,4,5,6</dias>
+        <endereco>Rua Maria Moreira de Andrade, 600</endereco>
+        <telefones>35163606</telefones>
+        <tim></tim>
+        <vivo></vivo>
+        <oi></oi>
+        <claro></claro>
+        <celular></celular>
+    </Loja>
+</Lojas>

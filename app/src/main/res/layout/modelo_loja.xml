@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" android:layout_gravity="top"
+        android:layout_height="112dp" android:layout_width="match_parent" />
+
+    <include layout="@layout/fabutton" android:id="@+id/fab"
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_gravity="right"  android:layout_alignEnd="@+id/toolbar"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="16dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_gravity="center" android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
+        android:layout_marginBottom="?attr/actionBarSize" android:layout_marginTop="100dp">
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/verde"
+            android:text="Aberto" android:layout_marginLeft="16dp" android:layout_weight="1"
+            android:id="@+id/aberto"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center" android:layout_weight="1">
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/domingo"
+                android:id="@+id/domingo" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/segunda"
+                android:id="@+id/segunda" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/terca"
+                android:id="@+id/terca" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/quarta"
+                android:id="@+id/quarta" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/quinta"
+                android:id="@+id/quinta" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/sexta"
+                android:id="@+id/sexta" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/sabado"
+                android:id="@+id/sabado" />
+            <View
+                android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" android:layout_weight="5"
+            android:text="@string/descricao"
+            android:id="@+id/descricao"
+            android:layout_gravity="center" android:textAlignment="center"
+            android:allowUndo="false"
+            android:autoText="false"
+            android:elegantTextHeight="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_weight="1"
+            android:text="@string/endereco"
+            android:id="@+id/endereco" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" android:id="@+id/radioGrup">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="telefone"
+                android:id="@+id/telefone" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="celular"
+                android:id="@+id/celular" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tim"
+                android:id="@+id/tim" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="vivo"
+                android:id="@+id/vivo" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="claro"
+                android:id="@+id/claro" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="oi"
+                android:id="@+id/oi" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <include layout="@layout/toolbar_bottom" android:layout_gravity="bottom"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+
+</FrameLayout>
