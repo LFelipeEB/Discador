@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -15,12 +15,9 @@ import android.widget.TextView;
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.AbstractExecutorService;
 
 /**
  * Created by lfelipeeb on 14/09/15.
@@ -50,6 +47,7 @@ public class LojaBase extends AppCompatActivity {
         toolbar.setSubtitle(loja.getHorario());
         toolbar.setElevation(new Float(20));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //TextViews;
         TextView TvInfor = (TextView) findViewById(R.id.descricao);
@@ -65,6 +63,17 @@ public class LojaBase extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onMenuItemSelected(MenuItem item){
+        //UP NAVIGATION
+        if(item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onMenuItemSelected(item);
+    }
+
 
     private void modificaDia(){
         String dias = loja.getDia();
