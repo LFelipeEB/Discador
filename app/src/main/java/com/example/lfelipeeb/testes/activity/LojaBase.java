@@ -64,16 +64,17 @@ public class LojaBase extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onMenuItemSelected(MenuItem item){
+  /*  @Override
+    public boolean onMenuItemSelected(int i, MenuItem item){
         //UP NAVIGATION
         if(item.getItemId() == android.R.id.home){
             finish();
             return true;
         }
-        return super.onMenuItemSelected(item);
-    }
+        return super.onMenuItemSelected(i, item);
 
+    }
+*/
 
     private void modificaDia(){
         String dias = loja.getDia();
