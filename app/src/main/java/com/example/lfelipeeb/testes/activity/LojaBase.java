@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.R;
@@ -38,7 +39,7 @@ public class LojaBase extends AppCompatActivity {
         //FAB BOTAO LIGAR
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(ligaListener());
-        fab.setElevation(new Float(50));
+        fab.setElevation(Float.valueOf(50));
 
         //TOOLBAR;
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
@@ -64,17 +65,6 @@ public class LojaBase extends AppCompatActivity {
 
     }
 
-  /*  @Override
-    public boolean onMenuItemSelected(int i, MenuItem item){
-        //UP NAVIGATION
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onMenuItemSelected(i, item);
-
-    }
-*/
 
     private void modificaDia(){
         String dias = loja.getDia();
@@ -250,6 +240,9 @@ public class LojaBase extends AppCompatActivity {
                     Uri uri = Uri.parse("tel:"+telefone);
                     Intent intent = new Intent(Intent.ACTION_DIAL, uri);
                     startActivity(intent);
+                }
+                if(telefone == null){
+                    Toast.makeText(LojaBase.this, "Você não selecionou nenhuma telefone !", Toast.LENGTH_SHORT).show();
                 }
             }
         };

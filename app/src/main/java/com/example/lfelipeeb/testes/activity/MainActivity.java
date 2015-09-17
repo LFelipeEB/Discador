@@ -1,12 +1,12 @@
 package com.example.lfelipeeb.testes.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +17,7 @@ import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.loja.LojasAdapter;
 import com.example.lfelipeeb.testes.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setElevation(new Float(20));
+        toolbar.setElevation(Float.valueOf(20));
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         //Lojas Adapter
         List<Lojas> lojas = Lojas.getLojas();
-        recyclerView.setAdapter(new LojasAdapter(this,lojas, onClickLojas()));
+        recyclerView.setAdapter(new LojasAdapter(this, lojas, onClickLojas()));
     }
 
     //OnClickLojas
@@ -59,15 +60,17 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private Activity getActivity(){return this;}
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) item.getActionView();
+        //searchView.setOnQueryTextListener(onSearch());
+
+
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -81,14 +84,35 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if(id == R.id.sobre){
+            Intent it = new Intent(MainActivity.this, Sobre.class);
+            startActivity(it);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
-    public View.OnClickListener onClickFAB(){
-        return  new View.OnClickListener() {
+    private SearchView.OnQueryTextListener onSearch(){
+        return new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"VOCE ESTA TENTANDO LIGAR",Toast.LENGTH_SHORT).show();
+            public boolean onQueryTextSubmit(String query) {
+                //Clicou GOO
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //TextoMudou
+                List<Lojas> lojas = Lojas.getLojas();
+                List<Lojas> pesquisadas = new ArrayList<>();
+                for(Lojas loja : lojas){
+                    if(loja.getNome().contains(newText)){
+                        pesquisadas.add(loja);
+                    }
+                }
+                recyclerView.setAdapter(new LojasAdapter(MainActivity.this,pesquisadas,onClickLojas()));
+
+                return false;
             }
         };
     }

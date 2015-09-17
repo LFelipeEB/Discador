@@ -32,7 +32,7 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
 
         //Este metodo cria uma subclasse de RecyclerView.ViewHolder
         //Infla as view do layout
-        View view = LayoutInflater.from(context).inflate(R.layout.adapter_lojas, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.adapter_lojas, parent,false);
         //Cria classe do ViewHolder
         LojasViewHolder holder = new LojasViewHolder(view);
         return holder;

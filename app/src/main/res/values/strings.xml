@@ -13,5 +13,15 @@
     <string name="sabado">Sabado</string>
     <string name="descricao">Informações sobre a empresa : VAZIO</string>
     <string name="endereco">Endereço:</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="sobre">Sobre</string>
+    <string name="title_activity_sobre">sobre</string>
+    <string name="cabelhacoSobre">SOBRE</string>
+    <string name="maisLoja">Envie informações para nos</string>
+    <string name="objetivo">OBJETIVO DO SOFTWARE</string>
+    <string name="explicacao">EXPLICAÇÂO DO PORQUE O SOFTWARE EXISTE</string>
+    <string name="versao">Versao do software</string>
+    <string name="title_activity_web_view">WebView</string>
+    <string name="ajudeDinheiro">Ajude a desenvover doando</string>
 
 </resources>

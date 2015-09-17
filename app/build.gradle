@@ -9,11 +9,11 @@ android {
             storePassword 'bazinga35'
         }
     }
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 21
+    buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "com.example.lfelipeeb.testes"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 

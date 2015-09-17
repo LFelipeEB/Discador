@@ -82,8 +82,10 @@ public class Lojas implements Serializable{
         List<Lojas> lojas = new ArrayList<>();
         lojas.add(new Lojas("Na Lenha Pizzaria", R.drawable.pizza, null, null, "0,1,2,3,4,5,6","Rua Maria Moreira de Andrade, 600",
                 "03335163606", null, null, null, null, null));
-        lojas.add(new Lojas("Sushi House", R.drawable.pizza, "O mais gostoso da culinária japonesa, agora em Capelinha!\nDelivery de comida Japonesa Sushi House!"
+        lojas.add(new Lojas("Sushi House", R.drawable.github, "O mais gostoso da culinária japonesa, agora em Capelinha!\nDelivery de comida Japonesa Sushi House!"
                 ,"19:00-23:30", "0,4,5,6","Capelinha Minas Gerais, 39680-000 Capelinha",null,"03891492149", null, null, null, "03399151033"));
+        lojas.add(new Lojas("TESTE", R.drawable.wordpress, "O mais gostoso da culinária japonesa, agora em Capelinha!\nDelivery de comida Japonesa Sushi House!"
+                ,"19:00-23:30", "0,4,5,6","Capelinha Minas Gerais, 39680-000 Capelinha","03891492149","03891492149", "03891492149", "03891492149", "03891492149", "03399151033"));
 
 
         //AUMENTANDO A LISTA

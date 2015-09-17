@@ -4,7 +4,7 @@
     android:background="?attr/selectableItemBackground">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!-- Foto do TIPO -->
         <ImageView android:id="@+id/img"
@@ -14,9 +14,18 @@
         <TextView android:id="@+id/tNome"
             android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="7" android:layout_marginLeft="10dp"
-            android:textColor="@color/primaryText"/>
+            android:text="NOME LOJA" android:textAlignment="center"
+            android:textEditPasteWindowLayout="?android:attr/textAppearanceLarge"
+            android:textColor="@color/primaryText" android:textStyle="bold"
+            android:layout_gravity="center_vertical" />
+
+        <TextView android:id="@+id/situacaoMain" android:text="ABERTO"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right" />
     </LinearLayout>
+
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp" android:background="@color/primaryText" />
+
 </LinearLayout>
