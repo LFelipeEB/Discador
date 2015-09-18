@@ -1,16 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools" xmlns:myWork="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <item android:id="@+id/action_search" android:icon="@drawable/search"
-        android:title="@string/action_search" android:showAsAction="always"
-        android:actionViewClass="android.widget.SearchView"
-        tools:ignore="AppCompatResource" />
-    <item android:id="@+id/action_search2" android:icon="@drawable/search"
-        android:title="@string/action_search" android:showAsAction="always"
-        tools:ignore="AppCompatResource" />
+        android:title="@string/action_search" myWork:showAsAction="always"
+        android:actionViewClass="android.support.v7.widget.SearchView"
+        />
 
     <item android:id="@+id/sobre" android:icon="@drawable/information"
-        android:title="@string/sobre" android:showAsAction="never"
-        tools:ignore="AppCompatResource" />
+        android:title="@string/sobre" myWork:showAsAction="never"
+        />
 </menu>

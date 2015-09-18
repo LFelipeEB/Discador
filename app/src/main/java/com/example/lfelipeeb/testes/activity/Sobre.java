@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.lfelipeeb.testes.BuildConfig;
 import com.example.lfelipeeb.testes.R;
 
 public class Sobre extends AppCompatActivity {

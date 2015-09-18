@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Testes</string>
+    <string name="app_name">Disque Delivery</string>
+    <string name="versao">Versão: 0.9 (Beta) e</string>
 
-    <string name="hello_world">Hello world!</string>
+
     <string name="action_settings">Settings</string>
     <string name="ajude">Nos Ajude a Desenvolver</string>
     <string name="domingo">Domingo</string>
@@ -16,11 +17,10 @@
     <string name="action_search">Pesquisar</string>
     <string name="sobre">Sobre</string>
     <string name="title_activity_sobre">sobre</string>
-    <string name="cabelhacoSobre">SOBRE</string>
+    <string name="cabelhacoSobre">SOBRE :</string>
     <string name="maisLoja">Envie informações para nos</string>
-    <string name="objetivo">OBJETIVO DO SOFTWARE</string>
-    <string name="explicacao">EXPLICAÇÂO DO PORQUE O SOFTWARE EXISTE</string>
-    <string name="versao">Versao do software</string>
+    <string name="objetivo">Este aplicativo foi criado para facilitar as ligações para as empresas que fazem serviço de entrega na cidade.</string>
+    <string name="explicacao">Sempre quando precisamos de uma telefone, seja para pedir uma pizza ou um gas, não temos informações sobre as empresas, então surge o Disque Delivery</string>
     <string name="title_activity_web_view">WebView</string>
     <string name="ajudeDinheiro">Ajude a desenvover doando</string>
 

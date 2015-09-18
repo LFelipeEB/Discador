@@ -70,7 +70,7 @@
         <Button
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="@string/ajudeDinheiro"
-            android:id="@+id/doacao"
+            android:id="@+id/doacao" android:background="@color/primaryColor"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp" />

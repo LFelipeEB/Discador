@@ -19,7 +19,7 @@
 
     </LinearLayout>
 
-    <include layout="@layout/toolbar_bottom" android:layout_gravity="bottom"
+    <include layout="@layout/toolbar_bottom" android:layout_gravity="bottom" android:id="@+id/bottomMain"
         android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
 

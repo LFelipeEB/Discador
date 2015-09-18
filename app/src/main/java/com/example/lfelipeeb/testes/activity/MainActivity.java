@@ -1,7 +1,10 @@
 package com.example.lfelipeeb.testes.activity;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.loja.LojasAdapter;
@@ -58,16 +60,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) item.getActionView();
-        //searchView.setOnQueryTextListener(onSearch());
 
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(onSearch());
+
+/*
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+*/
 
         return true;
     }
@@ -78,12 +87,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Toast.makeText(MainActivity.this, "SETTINGS", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
         if(id == R.id.sobre){
             Intent it = new Intent(MainActivity.this, Sobre.class);
             startActivity(it);
@@ -92,17 +95,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private SearchView.OnQueryTextListener onSearch(){
+    public SearchView.OnQueryTextListener onSearch(){
         return new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Clicou GOO
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //TextoMudou
                 List<Lojas> lojas = Lojas.getLojas();
                 List<Lojas> pesquisadas = new ArrayList<>();
                 for(Lojas loja : lojas){
