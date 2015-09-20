@@ -22,11 +22,11 @@
         <TextView
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/verde"
-            android:text="Aberto" android:layout_marginLeft="16dp" android:layout_weight="1"
+            android:text="Não Informado" android:layout_marginLeft="16dp" android:layout_weight="1"
             android:id="@+id/aberto"
             android:layout_gravity="center" />
 
-        <LinearLayout
+        <LinearLayout android:id="@+id/layoutDiaSemana"
             android:orientation="horizontal"
             android:layout_width="fill_parent" android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.loja.LojasAdapter;
@@ -23,14 +24,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Toolbar toolbar;
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setElevation(Float.valueOf(20));
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
@@ -68,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(onSearch());
+        Menu mMenu = toolbar.getMenu();
+
+//        MenuItem searchItem =  mMenu.findItem(R.id.action_search);
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        //searchView.setOnQueryTextListener(onSearch());
 
 /*
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         return new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(MainActivity.this,"Pesquisando ... ", Toast.LENGTH_SHORT).show();
                 return false;
             }
 
