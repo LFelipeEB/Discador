@@ -3,6 +3,8 @@
     package="com.example.lfelipeeb.testes" >
 
     <uses-permission android:name="ANDROID.PERMISSION.INTERNET" />
+    <uses-permission android:name="ANDROID.PERMISSION.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
@@ -11,15 +13,15 @@
         android:theme="@style/AppTheme.NoActionBar" >
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:label="@string/app_name" android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="ANDROID.INTENT.ACTION.VIEW" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activity.LojaBase"

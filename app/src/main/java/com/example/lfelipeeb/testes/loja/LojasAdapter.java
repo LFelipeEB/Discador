@@ -1,6 +1,7 @@
 package com.example.lfelipeeb.testes.loja;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lfelipeeb.testes.R;
+
+import com.example.lfelipeeb.testes.logico.DiaSemana;
 
 import java.util.List;
 
@@ -44,6 +47,20 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
         Lojas l = lojas.get(position);
         holder.tNome.setText(l.getNome());
         holder.img.setImageResource(l.getImgId());
+
+        boolean isAberto = DiaSemana.isAberto(l.getHorario(),l.getDia());
+        if(isAberto)
+        {
+            holder.tAberto.setText("ABERTO");
+            holder.tAberto.setTextColor(Color.GREEN);
+        }else if((l.getHorario() != null) && (l.getDia() != null))
+        {
+            holder.tAberto.setTextColor(Color.RED);
+            holder.tAberto.setText("FECHADO");
+        }else {
+            holder.tAberto.setTextColor(Color.BLACK);
+            holder.tAberto.setText("-- -- --");
+        }
         //Click
         if(onClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +86,9 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
 
     public static class LojasViewHolder extends RecyclerView.ViewHolder{
         public TextView tNome;
-        ImageView img;
+        private ImageView img;
         private View view;
+        private TextView tAberto;
 
         public LojasViewHolder(View view) {
             super(view);
@@ -78,6 +96,7 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
             //Cria as view
             tNome = (TextView) view.findViewById(R.id.tNome);
             img = (ImageView) view.findViewById(R.id.img);
+            tAberto = (TextView) view.findViewById(R.id.situacaoMain);
         }
     }
 }

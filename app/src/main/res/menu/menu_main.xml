@@ -4,10 +4,13 @@
 
     <item android:id="@+id/action_search" android:icon="@drawable/search"
         android:title="@string/action_search" myWork:showAsAction="always"
-        android:actionViewClass="android.support.v7.widget.SearchView"
+        myWork:actionViewClass="android.support.v7.widget.SearchView"
         />
 
     <item android:id="@+id/sobre" android:icon="@drawable/information"
-        android:title="@string/sobre" myWork:showAsAction="never"
+        android:title="@string/sobre" myWork:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/emailMain" android:icon="@drawable/email"
+        android:title="@string/email" myWork:showAsAction="ifRoom"
         />
 </menu>

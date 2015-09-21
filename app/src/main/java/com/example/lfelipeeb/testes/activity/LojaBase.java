@@ -5,8 +5,10 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -19,16 +21,12 @@ import com.example.lfelipeeb.testes.logico.DiaSemana;
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.R;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 /**
  * Created by lfelipeeb on 14/09/15.
+ * Ativity que mostra as informações das lojas alem de fazer as ligações
  */
 public class LojaBase extends AppCompatActivity {
     private Lojas loja;
-    private Bundle args;
 
     @Override
     public void onCreate(Bundle savedInstace){
@@ -36,31 +34,33 @@ public class LojaBase extends AppCompatActivity {
         setContentView(R.layout.modelo_loja);
 
         //Bundle Recebendo os parametros;
-        args = getIntent().getExtras();
+        Bundle args = getIntent().getExtras();
         loja = (Lojas) args.getSerializable("loja");
 
         //FAB BOTAO LIGAR
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(ligaListener());
-        fab.setElevation(Float.valueOf(50));
+        ViewCompat.setElevation(fab,50);
 
         //TOOLBAR;
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(R.color.primaryText);
         toolbar.setTitle(loja.getNome());
         toolbar.setSubtitle(loja.getHorario());
-        toolbar.setElevation(new Float(20));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ViewCompat.setElevation(toolbar, Float.valueOf(20));
 
         //TextViews;
         TextView TvInfor = (TextView) findViewById(R.id.descricao);
-        String temp = loja.getInfo() != loja.getInfo() ? loja.getInfo() : ("Informações sobre a empresa : VAZIO");
-        TvInfor.setText(temp);
+        if(loja.getInfo() != null) {
+            TvInfor.setText(loja.getInfo());
+        }
 
         TextView Tvendereco = (TextView) findViewById(R.id.endereco);
-        temp = loja.getEndereco() != null ? loja.getEndereco() : ("Endereço : VAZIO");
-        Tvendereco.setText(temp);
+        if(loja.getEndereco() != null );
+        Tvendereco.setText(loja.getEndereco());
         mostraTelefone();
         LinearLayout layoutDia =(LinearLayout) findViewById(R.id.layoutDiaSemana);
         DiaSemana diaSemana1 = new DiaSemana(loja);
@@ -154,4 +154,31 @@ public class LojaBase extends AppCompatActivity {
             }
         };
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_loja, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.sobreLoja){
+            Intent it = new Intent(LojaBase.this, Sobre.class);
+            startActivity(it);
+        }
+
+        if(id == R.id.emailLoja){
+            Intent email = new Intent(Intent.ACTION_SEND);
+            email.putExtra(Intent.EXTRA_EMAIL, new String[]{"lfelipeeb@gmail.com"});
+            email.putExtra(Intent.EXTRA_SUBJECT, "[DISCADOR DELIVERY]");
+            email.setType("message/rfc822");
+            startActivity(Intent.createChooser(email, "Escolha um cliente de email :"));
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

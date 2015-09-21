@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" xmlns:myWork="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/sobreLoja" android:icon="@drawable/information"
+        android:title="@string/sobre" myWork:showAsAction="ifRoom"
+        />
+
+    <item android:id="@+id/emailLoja" android:icon="@drawable/email"
+        android:title="@string/sobre" myWork:showAsAction="ifRoom"
+        />
+</menu>

@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
-    android:background="?attr/selectableItemBackground">
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto" android:id="@+id/card_view"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_margin="6dp" android:clickable="true"
+    card_view:cardBackgroundColor="@color/white" card_view:cardCornerRadius="2dp" card_view:cardElevation="6dp"
+    android:foreground="?attr/selectableItemBackground" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!-- Foto do TIPO -->
-        <ImageView android:id="@+id/img"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_weight="3" android:src="@drawable/phone"/>
-        <!-- NOME DA LOJA -->
-        <TextView android:id="@+id/tNome"
-            android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="7" android:layout_marginLeft="10dp"
-            android:text="NOME LOJA" android:textAlignment="center"
-            android:textEditPasteWindowLayout="?android:attr/textAppearanceLarge"
-            android:textColor="@color/primaryText" android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
+        android:layout_width="match_parent" android:layout_height="?attr/listPreferredItemHeight"
+        android:gravity="center_vertical" android:orientation="vertical">
 
-        <TextView android:id="@+id/situacaoMain" android:text="ABERTO"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right" />
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="6dp"
+            android:orientation="horizontal">
+            <!-- Foto do TIPO -->
+            <ImageView android:id="@+id/img"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_weight="3" android:src="@drawable/phone"/>
+            <!-- NOME DA LOJA -->
+            <TextView android:id="@+id/tNome"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="7" android:layout_marginLeft="10dp"
+                android:text="NOME LOJA" android:textAlignment="center"
+                android:textEditPasteWindowLayout="?android:attr/textAppearanceLarge"
+                android:textColor="@color/primaryText" android:textStyle="bold"
+                android:layout_gravity="center_vertical" />
+
+            <TextView android:id="@+id/situacaoMain" android:text="-- --"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right" />
+        </LinearLayout>
     </LinearLayout>
+</android.support.v7.widget.CardView>
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp" android:background="@color/primaryText" />
-
-</LinearLayout>

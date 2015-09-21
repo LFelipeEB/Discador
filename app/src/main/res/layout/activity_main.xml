@@ -14,13 +14,12 @@
         >
 
         <android.support.v7.widget.RecyclerView
-        android:layout_width="wrap_content"
+        android:layout_width="wrap_content" android:background="?attr/selectableItemBackground"
         android:layout_height="wrap_content" android:id="@+id/recyclerMain" />
 
     </LinearLayout>
 
     <include layout="@layout/toolbar_bottom" android:layout_gravity="bottom" android:id="@+id/bottomMain"
         android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
 
 </FrameLayout>

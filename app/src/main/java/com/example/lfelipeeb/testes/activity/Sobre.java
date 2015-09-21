@@ -21,18 +21,10 @@ public class Sobre extends AppCompatActivity {
         setContentView(R.layout.activity_sobre);
         //TOOLBAR
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setElevation(new Float(20));
+//        toolbar.setElevation(new Float(20));
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Button doar = (Button)findViewById(R.id.doacao);
-        doar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Sobre.this, WebViewDoar.class));
-            }
-        });
 
         LinearLayout github = (LinearLayout) findViewById(R.id.github);
         github.setOnClickListener(new View.OnClickListener() {
@@ -53,5 +45,21 @@ public class Sobre extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        View bottomBar = findViewById(R.id.bottomSobre);
+        bottomBar.setOnClickListener(toolbarBottomListener());
+    }
+
+    private View.OnClickListener toolbarBottomListener(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"lfelipeeb@gmail.com"});
+                email.putExtra(Intent.EXTRA_SUBJECT, "[DISCADOR DELIVERY]");
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Escolha um cliente de email :"));
+            }
+        };
     }
 }

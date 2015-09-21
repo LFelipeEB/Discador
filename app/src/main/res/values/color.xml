@@ -5,8 +5,10 @@
     <color name="accentColor">#FFEB3B</color>
     <color name="lightPrimaryColor">#B2DFDB</color>
     <color name="primaryText">#212121</color>
-    <color name="textIcon">#FFFFFF</color>
+    <color name="branco">#FFFFFF</color>
     <color name="dividerColor">#B6B6B6</color>
     <color name="secudanrytext">#727272</color>
     <color name="verde">#05ff00</color>
+    <color name="transparent">#00ffffff</color>
+
 </resources>
