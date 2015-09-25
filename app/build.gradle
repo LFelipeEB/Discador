@@ -5,11 +5,11 @@ android {
     compileSdkVersion 21
     buildToolsVersion '23.0.1'
     defaultConfig {
-        applicationId "com.example.lfelipeeb.testes"
-        minSdkVersion 15
+        applicationId 'br.com.lfelipeeb.discadorDelivery'
+        minSdkVersion 16
         targetSdkVersion 16
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -27,7 +27,5 @@ dependencies {
     compile 'com.android.support:design:22.2.0'
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.android.support:cardview-v7:22.1.0'
-
-
     compile 'br.com.livroandroid:android-utils:1.0.0'
 }

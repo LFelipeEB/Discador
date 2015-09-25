@@ -25,78 +25,99 @@
             android:text="Não Informado" android:layout_marginLeft="16dp"
             android:id="@+id/aberto"
             android:layout_gravity="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Dias de funcionamento:"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/primaryText" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+
+                <LinearLayout android:id="@+id/layoutDiaSemana"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/domingo"
+                        android:id="@+id/domingo" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/segunda"
+                        android:id="@+id/segunda" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/terca"
+                        android:id="@+id/terca" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/quarta"
+                        android:id="@+id/quarta" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/quinta"
+                        android:id="@+id/quinta" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/sexta"
+                        android:id="@+id/sexta" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/sabado"
+                        android:id="@+id/sabado" />
+                    <View
+                        android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_gravity="bottom" android:gravity="center_horizontal"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <LinearLayout android:id="@+id/layoutDiaSemana"
-                        android:orientation="horizontal"
-                        android:layout_width="fill_parent" android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center">
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/domingo"
-                            android:id="@+id/domingo" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/segunda"
-                            android:id="@+id/segunda" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/terca"
-                            android:id="@+id/terca" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/quarta"
-                            android:id="@+id/quarta" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/quinta"
-                            android:id="@+id/quinta" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/sexta"
-                            android:id="@+id/sexta" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                        <TextView
-                            android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="@string/sabado"
-                            android:id="@+id/sabado" />
-                        <View
-                            android:layout_width="1dp" android:layout_height="fill_parent" android:background="@color/primaryText"/>
-                    </LinearLayout>
-                </HorizontalScrollView>
                 <LinearLayout
                     android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal">
                     <TextView
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge" android:layout_weight="5"
+                        android:layout_weight="5"
                         android:text="@string/descricao"
-                        android:id="@+id/descricao"
+                        android:id="@+id/descricao" android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_gravity="center" android:textAlignment="center" />
 
                     <TextView

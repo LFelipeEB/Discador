@@ -1,6 +1,7 @@
 package com.example.lfelipeeb.testes.activity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewCompat;
@@ -10,22 +11,24 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.lfelipeeb.testes.logico.BancoLojas;
 import com.example.lfelipeeb.testes.logico.PesquisaLoja;
 import com.example.lfelipeeb.testes.loja.Lojas;
 import com.example.lfelipeeb.testes.loja.LojasAdapter;
 import com.example.lfelipeeb.testes.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private List<Lojas> lojas;
-    private View viewEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +46,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
-
+        lojas = new ArrayList<>();
         //Lojas Adapter
-        lojas = Lojas.getLojas();
+        //lojas = Lojas.getLojas();
+        BancoLojas bd = new BancoLojas(this);
+        lojas = bd.findAll();
+        Log.i("LOJAS", String.valueOf(lojas.size()));
+
         recyclerView.setAdapter(new LojasAdapter(this, lojas, onClickLojas()));
 
         View toolbarBottom = findViewById(R.id.bottomMain);

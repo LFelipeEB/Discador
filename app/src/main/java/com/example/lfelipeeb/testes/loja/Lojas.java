@@ -1,5 +1,6 @@
 package com.example.lfelipeeb.testes.loja;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 import com.example.lfelipeeb.testes.R;
@@ -16,7 +17,9 @@ import java.util.List;
  */
 public class Lojas implements Serializable{
 
+    private long id;
     private String nome;
+
     private int img;
     private String info;
     private String horario;
@@ -28,6 +31,23 @@ public class Lojas implements Serializable{
     private String vivo;
     private String oi;
     private String claro;
+
+
+    public void setImg(int img) {this.img = img;}
+
+    public void setImg(String img) {
+        if (img.toUpperCase().compareTo("food".toUpperCase()) == 0 ) {this.img = R.drawable.food;}
+        if (img.toUpperCase().compareTo("emergencia".toUpperCase()) == 0){this.img = R.drawable.ambulance;}
+        if (img.toUpperCase().compareTo("japa".toUpperCase()) == 0){this.img = R.drawable.fish;}
+        if (img.toUpperCase().compareTo("gas".toUpperCase()) == 0){this.img = R.drawable.gas_e_agua;}
+        if (img.toUpperCase().compareTo("pizza".toUpperCase()) == 0){this.img = R.drawable.pizza;}
+        if (img.toUpperCase().compareTo("restaurante".toUpperCase()) == 0){this.img = R.drawable.restaurante;}
+        if (img.toUpperCase().compareTo("bebida".toUpperCase()) == 0){this.img = R.drawable.tulip;}
+    }
+
+    public long getId() {return id;}
+
+    public void setId(long id) {this.id = id;}
 
     public void setNome(String nome) {this.nome = nome;}
 
@@ -83,6 +103,7 @@ public class Lojas implements Serializable{
         this.vivo = vivo; this.oi = oi; this.claro = claro;
     }
 
+    /*
     public static List<Lojas> getLojas(){
         List<Lojas> lojas = new ArrayList<>();
         lojas.add(new Lojas("Na Lenha Pizzaria", R.drawable.pizza, null, null, "0,1,2,3,4,5,6","Rua Maria Moreira de Andrade, 600",
@@ -96,18 +117,19 @@ public class Lojas implements Serializable{
                 ,"18:00-23:00", "0,1,3,4,5,6","AV ITALIA Nº 355 BAIRRO JARDIM AEROPORTO, 39680-000 Capelinha","35162384",null,"91245478", null, "87087211", null));
         lojas.add(new Lojas("Drograria Monumento Rede Inova", R.drawable.ambulance,null, "00:00-23:59", "0,1,2,3,4,5,6","Praça do Povo 52, Centro, Capelinha","35163000","91912839 ",null, null, null, null));
         lojas.add(new Lojas("Ripa Pizzaria e Restaurante", R.drawable.restaurante, null, "18:00-23:59", "0,2,3,4,5,6", "RUA JOÃO ALVES SAMPAIO .445 B. Mª LUCIA ,Capelinha - MINAS GERAIS", "35163373", "91996983 ", null, null, null, null));
-        lojas.add(new Lojas("CAPITANIA DAS PIZZAS", R.drawable.pizza, null, "18:00-23:59", "0,1,2,3,4,5,6", "Av Aeroporto 352 Jardim Aeroporto, Capelinha - MINAS GERAIS",
+        lojas.add(new Lojas("Capitania das Piazza", R.drawable.pizza, null, "18:00-23:59", "0,1,2,3,4,5,6", "Av Aeroporto 352 Jardim Aeroporto, Capelinha - MINAS GERAIS",
                 "35163482" , null, "91656583", null, null, null));
-        lojas.add(new Lojas("LIDERGÁS",R.drawable.gas_e_agua,null,null,"1,2,3,4,5",null,"35161969",null,"91020305",null,null,null));
+        lojas.add(new Lojas("Lidergás",R.drawable.gas_e_agua,null,null,"1,2,3,4,5",null,"35161969",null,"91020305",null,null,null));
         lojas.add(new Lojas("Miro Gás",R.drawable.gas_e_agua,null,null,"1,2,3,4,5",null,"35162454",null,"91140596",null,null,null));
-
+        lojas.add(new Lojas("Farmacia Indiana",R.drawable.ambulance,null,null,"0,1,2,3,4,5,6","Praça do Povo, nº73, Centro","35162334",null,null,null,null,null));
+        lojas.add(new Lojas("Bichoprapao Lanchonete",R.drawable.food,null,"07:00-4:00","0,1,2,3,4,5,6","Praça do Povo, Centro","35161729","91982741","91429035","91994362",null,null));
+        lojas.add(new Lojas("Emergencia",R.drawable.ambulance,"TELEFONES DE EMERGGENCIA","00:00-23:59","0,1,2,3,4,5,6","Policia Militar\tSAMU\tDisque Denuncia\tPolicia Civil","190","192","181","197",null,null));
 
         //lojas.add(new Lojas("Nome",R.drawable.ic_drawer_dark,null,"HORARIO","DIAS","ENDEREÇO",null,null,null,null,null,null));
 
-
         return lojas;
         //return sortLojasByName(lojas); //Busca e retorna as lojas cadastradas.
-    }
+    } */
 
     private static List<Lojas> sortLojasByName(List<Lojas> lojas){
         List<Lojas> ordenado = new ArrayList<>();

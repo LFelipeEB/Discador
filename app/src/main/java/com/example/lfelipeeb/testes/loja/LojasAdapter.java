@@ -1,8 +1,10 @@
 package com.example.lfelipeeb.testes.loja;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.lfelipeeb.testes.R;
 
+import com.example.lfelipeeb.testes.activity.MainActivity;
+import com.example.lfelipeeb.testes.logico.BancoLojas;
 import com.example.lfelipeeb.testes.logico.DiaSemana;
 
 import java.util.List;
@@ -35,7 +39,7 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
 
         //Este metodo cria uma subclasse de RecyclerView.ViewHolder
         //Infla as view do layout
-        View view = LayoutInflater.from(context).inflate(R.layout.adapter_lojas, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.adapter_lojas, parent, false);
         //Cria classe do ViewHolder
         LojasViewHolder holder = new LojasViewHolder(view);
         return holder;
@@ -46,13 +50,15 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
         //Este metodo recebe o indice do elemento, e atualiza as views que estao dentro do ViewHolder
         Lojas l = lojas.get(position);
         holder.tNome.setText(l.getNome());
+        Log.i("LOJAS", l.getNome());
+
         holder.img.setImageResource(l.getImgId());
 
         boolean isAberto = DiaSemana.isAberto(l.getHorario(),l.getDia());
         if(isAberto)
         {
             holder.tAberto.setText("ABERTO");
-            holder.tAberto.setTextColor(Color.GREEN);
+            holder.tAberto.setTextColor(context.getResources().getColor(R.color.primaryColor));
         }else if((l.getHorario() != null) && (l.getDia() != null))
         {
             holder.tAberto.setTextColor(Color.RED);
@@ -79,10 +85,6 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
     public int getItemCount() {
         return this.lojas != null ? this.lojas.size() : 0;
     }
-
-
-
-
 
     public static class LojasViewHolder extends RecyclerView.ViewHolder{
         public TextView tNome;

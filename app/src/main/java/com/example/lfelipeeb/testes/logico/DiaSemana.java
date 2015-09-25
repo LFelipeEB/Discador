@@ -28,49 +28,49 @@ public class DiaSemana {
                 switch (d) {
                     case 0:
                         TextView semana0 = (TextView) layout.findViewById(R.id.domingo);
-                        semana0.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana0.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 1) {
                             hoje = true;
                         }
                         break;
                     case 1:
                         TextView semana1 = (TextView) layout.findViewById(R.id.segunda);
-                        semana1.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana1.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 2) {
                             hoje = true;
                         }
                         break;
                     case 2:
                         TextView semana2 = (TextView) layout.findViewById(R.id.terca);
-                        semana2.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana2.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 3) {
                             hoje = true;
                         }
                         break;
                     case 3:
                         TextView semana3 = (TextView) layout.findViewById(R.id.quarta);
-                        semana3.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana3.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 4) {
                             hoje = true;
                         }
                         break;
                     case 4:
                         TextView semana4 = (TextView) layout.findViewById(R.id.quinta);
-                        semana4.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana4.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 5) {
                             hoje = true;
                         }
                         break;
                     case 5:
                         TextView semana5 = (TextView) layout.findViewById(R.id.sexta);
-                        semana5.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana5.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 6) {
                             hoje = true;
                         }
                         break;
                     case 6:
                         TextView semana6 = (TextView) layout.findViewById(R.id.sabado);
-                        semana6.setTextColor(layout.getResources().getColor(R.color.verde));
+                        semana6.setTextColor(layout.getResources().getColor(R.color.primaryColor));
                         if (diaWeek == 7) {
                             hoje = true;
                         }

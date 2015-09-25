@@ -69,12 +69,14 @@ public class LojaBase extends AppCompatActivity {
         if(diaSemana1.isAberto()){
             TextView aberto = (TextView) findViewById(R.id.aberto);
             aberto.setText("ABERTO");
-            aberto.setTextColor(Color.GREEN);
+            aberto.setTextColor(getResources().getColor(R.color.primaryColor));
         }
-        if(! diaSemana1.isAberto()){
+        else if((loja.getHorario() != null) && (loja.getDia() != null)){
             TextView aberto = (TextView) findViewById(R.id.aberto);
             aberto.setText("FECHADO");
             aberto.setTextColor(Color.RED);
+        }else{
+
         }
     }
 
