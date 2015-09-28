@@ -95,10 +95,10 @@ public class Lojas implements Serializable{
 
     public Lojas (){}
 
-    public Lojas(String nome, int img, String info, String horario, String dia, String endereco,
+    public Lojas(long id, String nome, int img, String info, String horario, String dia, String endereco,
                  String telefone, String celular, String tim, String vivo, String oi, String claro)
     {
-        this.nome = nome; this.img =img; this.info = info; this.horario = horario; this.dia = dia;
+        this.id = id; this.nome = nome; this.img =img; this.info = info; this.horario = horario; this.dia = dia;
     this.endereco = endereco; this.telefone = telefone; this.celular = celular; this.tim = tim;
         this.vivo = vivo; this.oi = oi; this.claro = claro;
     }

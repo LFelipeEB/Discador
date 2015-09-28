@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,12 +37,34 @@ public class LojaBase extends AppCompatActivity {
         //Bundle Recebendo os parametros;
         Bundle args = getIntent().getExtras();
         loja = (Lojas) args.getSerializable("loja");
-
+/*
         //FAB BOTAO LIGAR
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(ligaListener());
-        ViewCompat.setElevation(fab,50);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("FAB", "OUVI SEU CLIQUE NO FAB");
+                RadioGroup grup = (RadioGroup) findViewById(R.id.radioGrup);
+                int idSelected = grup.getCheckedRadioButtonId();
+                String telefone = null;
+
+                if(idSelected > 0){
+                    RadioButton rb = (RadioButton) findViewById(idSelected);
+                    telefone = rb.getText().toString();
+                    Uri uri = Uri.parse("tel:"+telefone);
+                    Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                    startActivity(intent);
+                }
+                if(idSelected < 0){
+                    Toast.makeText(LojaBase.this, "Você não selecionou nenhuma telefone !", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        ViewCompat.setElevation(fab, 50);
+*/
+        View fabutton = findViewById(R.id.fab);
+        fabutton.setOnClickListener(ligaListener());
+
 
         //TOOLBAR;
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
@@ -59,8 +82,10 @@ public class LojaBase extends AppCompatActivity {
         }
 
         TextView Tvendereco = (TextView) findViewById(R.id.endereco);
-        if(loja.getEndereco() != null );
-        Tvendereco.setText(loja.getEndereco());
+        if(loja.getEndereco() != null ) {
+            Tvendereco.setText(loja.getEndereco());
+        }
+
         mostraTelefone();
         LinearLayout layoutDia =(LinearLayout) findViewById(R.id.layoutDiaSemana);
         DiaSemana diaSemana1 = new DiaSemana(loja);
@@ -75,9 +100,10 @@ public class LojaBase extends AppCompatActivity {
             TextView aberto = (TextView) findViewById(R.id.aberto);
             aberto.setText("FECHADO");
             aberto.setTextColor(Color.RED);
-        }else{
+        }else {
 
         }
+
     }
 
     private void mostraTelefone(){
@@ -120,37 +146,15 @@ public class LojaBase extends AppCompatActivity {
                 RadioGroup grup = (RadioGroup) findViewById(R.id.radioGrup);
                 int idSelected = grup.getCheckedRadioButtonId();
                 String telefone = null;
-                if(idSelected == R.id.telefone){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
-                if(idSelected == R.id.celular){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
-                if(idSelected == R.id.tim){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
-                if(idSelected == R.id.vivo){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
-                if(idSelected == R.id.oi){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
-                if(idSelected == R.id.claro){
-                    RadioButton rb = (RadioButton) findViewById(idSelected);
-                    telefone = rb.getText().toString();
-                }
 
-                if(telefone != null){
+                if(idSelected > 0){
+                    RadioButton rb = (RadioButton) findViewById(idSelected);
+                    telefone = rb.getText().toString();
                     Uri uri = Uri.parse("tel:"+telefone);
                     Intent intent = new Intent(Intent.ACTION_DIAL, uri);
                     startActivity(intent);
                 }
-                if(telefone == null){
+                if(idSelected < 0){
                     Toast.makeText(LojaBase.this, "Você não selecionou nenhuma telefone !", Toast.LENGTH_SHORT).show();
                 }
             }

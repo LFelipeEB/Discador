@@ -50,7 +50,6 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
         //Este metodo recebe o indice do elemento, e atualiza as views que estao dentro do ViewHolder
         Lojas l = lojas.get(position);
         holder.tNome.setText(l.getNome());
-        Log.i("LOJAS", l.getNome());
 
         holder.img.setImageResource(l.getImgId());
 
@@ -100,5 +99,9 @@ public class LojasAdapter extends RecyclerView.Adapter <LojasAdapter.LojasViewHo
             img = (ImageView) view.findViewById(R.id.img);
             tAberto = (TextView) view.findViewById(R.id.situacaoMain);
         }
+    }
+
+    public List<Lojas> getLojas() {
+        return lojas;
     }
 }

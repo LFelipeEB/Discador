@@ -14,19 +14,20 @@ import java.util.List;
 /**
  * Created by evari_000 on 20/09/2015.
  */
-public class PesquisaLoja implements SearchView.OnQueryTextListener, SearchView.OnCloseListener{
-    private List<Lojas> lojasOriginais, lojasTemp;
+public class PesquisaLoja implements SearchView.OnQueryTextListener, SearchView.OnCloseListener {
+    static private List<Lojas> lojasOriginais, lojasTemp;
     private RecyclerView lista;
     private Context context;
     private LojasAdapter.LojaOnClickListener onClick;
 
-    public  PesquisaLoja(List<Lojas> lojasOriginais, RecyclerView lista, Context contexto, LojasAdapter.LojaOnClickListener onClick){
+    public PesquisaLoja(List<Lojas> lojasOriginais, RecyclerView lista, Context contexto, LojasAdapter.LojaOnClickListener onClick) {
         this.lojasOriginais = lojasOriginais;
         this.lista = lista;
         this.context = contexto;
         this.onClick = onClick;
         lojasTemp = new ArrayList<>();
     }
+
     @Override
     public boolean onClose() {
         lista.setAdapter(new LojasAdapter(context, lojasOriginais, onClick));
@@ -42,13 +43,16 @@ public class PesquisaLoja implements SearchView.OnQueryTextListener, SearchView.
     public boolean onQueryTextChange(String newText) {
         lojasTemp.clear();
 
-        for(Lojas temp : lojasOriginais){
-            if(temp.getNome().toUpperCase().contains(newText.toUpperCase())){
+        for (Lojas temp : lojasOriginais) {
+            if (temp.getNome().toUpperCase().contains(newText.toUpperCase())) {
                 lojasTemp.add(temp);
             }
         }
         lista.setAdapter(new LojasAdapter(context, lojasTemp, onClick));
-
         return false;
+    }
+
+    public static List<Lojas> getLojas(){
+        return lojasTemp;
     }
 }

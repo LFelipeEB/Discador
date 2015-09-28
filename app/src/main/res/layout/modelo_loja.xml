@@ -7,11 +7,10 @@
     <include layout="@layout/toolbar" android:layout_gravity="top"
         android:layout_height="112dp" android:layout_width="match_parent" />
 
-    <include layout="@layout/fabutton" android:id="@+id/fab"
+    <include layout="@layout/fabutton" android:id="@+id/fab" android:background="?attr/selectableItemBackground"
         android:layout_height="wrap_content" android:layout_width="wrap_content"
         android:layout_gravity="bottom|right"  android:layout_alignEnd="@+id/toolbar"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginRight="16dp" android:layout_marginBottom="16dp" android:clickable="true"  />
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,16 +20,18 @@
 
         <TextView
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/verde"
+            android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="@color/primaryColor"
             android:text="Não Informado" android:layout_marginLeft="16dp"
             android:id="@+id/aberto"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            />
 
         <LinearLayout
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +102,8 @@
         <ScrollView
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_gravity="bottom" android:gravity="center_horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:fillViewport="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"

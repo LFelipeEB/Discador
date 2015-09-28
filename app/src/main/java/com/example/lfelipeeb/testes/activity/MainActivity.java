@@ -1,7 +1,6 @@
 package com.example.lfelipeeb.testes.activity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewCompat;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
-        ViewCompat.setElevation(toolbar, Float.valueOf(20));
+        ViewCompat.setElevation(toolbar, 20);
 
         //RecyclerView
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMain);
@@ -50,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //Lojas Adapter
         //lojas = Lojas.getLojas();
         BancoLojas bd = new BancoLojas(this);
+        bd.inicializaBanco();
         lojas = bd.findAll();
         Log.i("LOJAS", String.valueOf(lojas.size()));
 
@@ -59,16 +59,15 @@ public class MainActivity extends AppCompatActivity {
         toolbarBottom.setOnClickListener(toolbarBottomListener());
     }
 
-    //OnClickLojas
+    //OnClickLojasMAIN
     private LojasAdapter.LojaOnClickListener onClickLojas(){
         return new LojasAdapter.LojaOnClickListener(){
             @Override
             public void onClickLoja(View view, int idx) {
-                List<Lojas> loja = Lojas.getLojas();
+                List<Lojas> loja = lojas;
                 Lojas l = loja.get(idx);
                 Bundle params = new Bundle();
                 params.putSerializable("loja",l);
-
                 Intent intent = new Intent(MainActivity.this, LojaBase.class);
                 intent.putExtras(params);
                 startActivity(intent);
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem searchItem =  mMenu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(new PesquisaLoja(lojas,recyclerView,MainActivity.this, onClickLojas()));
+        searchView.setOnQueryTextListener(new PesquisaLoja(lojas,recyclerView,MainActivity.this, onClickLojasPesquisa()));
 
         return true;
     }
@@ -121,4 +120,20 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-}
+
+
+    private LojasAdapter.LojaOnClickListener onClickLojasPesquisa() {
+        return new LojasAdapter.LojaOnClickListener() {
+            @Override
+            public void onClickLoja(View view, int idx) {
+                List<Lojas> loja = PesquisaLoja.getLojas();
+                Lojas l = loja.get(idx);
+                Bundle params = new Bundle();
+                params.putSerializable("loja", l);
+                Intent intent = new Intent(MainActivity.this, LojaBase.class);
+                intent.putExtras(params);
+                startActivity(intent);
+            }
+        };
+
+    }}
